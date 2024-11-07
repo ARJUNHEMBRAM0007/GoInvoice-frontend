@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import Signin from './Components/Signin';
 import Signup from './Components/Signup';
+import Home from './Components/Home';
 import Sidebar from './Components/Sidebar';
 import Header from './Components/Header';
 import MainContent from './Components/MainContent';
@@ -19,9 +20,12 @@ const App = () => {
       <Routes>
         {!isAuthenticated ? (
           <>
-            <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
+
             <Route path="/signup" element={<Signup />} />
             <Route path="/*" element={<Navigate to="/signin" />} />
+            <Route path="/signin" element={<Signin setIsAuthenticated={setIsAuthenticated} />} />
+            <Route path="/Home" element={<Home />} />
+
           </>
         ) : (
           <Route path="/*" element={
